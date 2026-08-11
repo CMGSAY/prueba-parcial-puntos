@@ -3,7 +3,7 @@ import UserForm from './components/UserForm';
 import PointsManager from './components/PointsManager';
 import UserList from './components/UserList';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://prueba-parcial-puntos.onrender.com/api';
 
 function App() {
   const [users, setUsers] = useState([]);
