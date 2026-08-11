@@ -11,7 +11,15 @@ app.use(express.json());
 
 // Supabase Client Setup
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_PUBLISHABLE_KEY; // <-- Este es el cambio
+const supabaseKey = process.env.SUPABASE_PUBLISHABLE_KEY;
+
+// Verificación de seguridad para los logs de Render
+if (!supabaseUrl || !supabaseKey) {
+    console.error("🚨 ERROR CRÍTICO: Faltan variables de entorno.");
+    console.error(`SUPABASE_URL detectado: ${supabaseUrl ? 'SÍ' : 'NO'}`);
+    console.error(`SUPABASE_PUBLISHABLE_KEY detectado: ${supabaseKey ? 'SÍ' : 'NO'}`);
+}
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // --- ENDPOINTS ---
